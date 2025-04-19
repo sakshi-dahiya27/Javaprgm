@@ -1,48 +1,48 @@
-// Base class
-class Vehicle {
-    String type = "Four Wheeler";
+class Person {
+    String name = "Unknown";
 
-    void start() {
-        System.out.println(type + " is starting...");
+    void displayPerson() {
+        System.out.println("Name: " + name);
     }
 }
 
-// First child class (inherits from Vehicle)
-class Car extends Vehicle {
-    String brand = "Mahindra";
+class Student extends Person {
+    String studentId = "S1001";
 
-    void drive() {
-        System.out.println(brand + " car is being driven.");
+    void displayStudent() {
+        System.out.println("Student ID: " + studentId);
     }
 }
 
-// Second child class (inherits from Car)
-class SUV extends Car {
-    String category = "Sports Utility Vehicle";
+class GraduateStudent extends Student {
+    String degree = "B.Tech";
 
-    void offRoadDrive() {
-        System.out.println(brand + " " + category + " is great for off-road driving.");
+    void displayGraduateStudent() {
+        System.out.println("Degree: " + degree);
     }
 }
 
-// Third child class (inherits from SUV)
-class Scorpio extends SUV {
-    String model = "Scorpio-N";
+class PostGraduateStudent extends GraduateStudent {
+    String specialization = "Computer Science";
 
-    void showFeatures() {
-        System.out.println(brand + " " + model + " has advanced features like ADAS and 4x4 drive.");
+    void displayPostGraduateStudent() {
+        System.out.println("Specialization: " + specialization);
     }
 }
 
-// Main class
-public class MultilevelInheritance{
+public class MultilevelInheritance {
     public static void main(String[] args) {
-        Scorpio myScorpio = new Scorpio();
+        PostGraduateStudent pgStudent = new PostGraduateStudent();
 
-        // Accessing methods from all ancestor classes
-        myScorpio.start();       // From Vehicle class
-        myScorpio.drive();       // From Car class
-        myScorpio.offRoadDrive();// From SUV class
-        myScorpio.showFeatures();// From Scorpio class
+        pgStudent.name = "Alice";
+        pgStudent.studentId = "PG123";
+        pgStudent.degree = "MCA";
+        pgStudent.specialization = "AI & ML";
+
+        System.out.println("----- Student Details -----");
+        pgStudent.displayPerson();
+        pgStudent.displayStudent();
+        pgStudent.displayGraduateStudent();
+        pgStudent.displayPostGraduateStudent();
     }
 }
